@@ -1,0 +1,179 @@
+# === NODE.JS ===
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Package manager lockfiles (uncomment the one you DON'T use)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# === VITE & BUILD ===
+# Build outputs
+dist/
+dist-ssr/
+build/
+out/
+
+# Vite cache
+.vite/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# === ENVIRONMENT VARIABLES ===
+# Environment files (contains API keys and secrets)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*.local
+
+# === LOGS ===
+logs/
+*.log
+
+# === CACHE & TEMP ===
+# TypeScript cache
+*.tsbuildinfo
+.tsbuildinfo
+
+# Cache directories
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist/
+
+# Temporary folders
+tmp/
+temp/
+
+# === EDITOR & IDE ===
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# JetBrains IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# === OPERATING SYSTEM ===
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# === TESTING ===
+# Coverage reports
+coverage/
+*.lcov
+.nyc_output/
+
+# === RUNTIME ===
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# === MISC ===
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env.test
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# === PROJECT SPECIFIC ===
+# Generated files
+src/types/generated/
+
+# Local development files
+*.local.*
+
+# Backup files
+*.backup
+*.bak
+*.tmp
+
+# Documentation builds
+docs/build/
+
+# === SECURITY ===
+# Private keys
+*.pem
+*.key
+*.p12
+*.crt
+
+# API keys and secrets (additional protection)
+*secret*
+*key*
+*token*
+config/secrets/
