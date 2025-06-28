@@ -1,0 +1,37 @@
+/* Theme Variables */
+:root[data-theme='light'] {
+  --bg-color: #ffffff;
+  --text-color: #213547;
+  --border-color: #d1d5db;
+  --accent-color: #646cff;
+}
+
+:root[data-theme='dark'] {
+  --bg-color: #1a1a1a;
+  --text-color: #ffffff;
+  --border-color: #374151;
+  --accent-color: #747bff;
+}
+
+/* Global theme styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.home-page {
+  padding: 2rem;
+  text-align: center;
+}
+
+.home-page h1 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.home-page p {
+  margin-bottom: 1.5rem;
+}

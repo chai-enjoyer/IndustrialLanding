@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+
+  body {
+    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-50 font-sans;
+    font-feature-settings:
+      'rlig' 1,
+      'calt' 1;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 
+           transition-colors duration-200 relative;
+  }
+
+  .nav-link.active {
+    @apply text-blue-600 dark:text-blue-400;
+  }
+
+  .nav-link.active::after {
+    @apply content-[''] absolute -bottom-1 left-0 w-full h-0.5 
+           bg-blue-600 dark:bg-blue-400;
+  }
+}
+
+@layer utilities {
+  /* Scroll reveal animations */
+  .reveal-fade-in {
+    opacity: 0;
+    transition: opacity 0.7s ease-out;
+  }
+  
+  .reveal-fade-in.revealed {
+    opacity: 1;
+  }
+  
+  .reveal-slide-up {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .reveal-slide-up.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .reveal-slide-left {
+    opacity: 0;
+    transform: translateX(2rem);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .reveal-slide-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .reveal-scale-up {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  
+  .reveal-scale-up.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @keyframes blob {
+    0% {
+      transform: translate(0px, 0px) scale(1);
+    }
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+    100% {
+      transform: translate(0px, 0px) scale(1);
+    }
+  }
+  
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+  
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  /* Плавные переходы для мобильного меню */
+  .mobile-menu-enter {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  .mobile-menu-enter-active {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+  
+  .mobile-menu-exit {
+    max-height: 500px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .mobile-menu-exit-active {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.3s ease-in, opacity 0.3s ease-in, transform 0.3s ease-in;
+  }
+}
