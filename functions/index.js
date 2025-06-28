@@ -36,7 +36,7 @@ ${data.message}
 🕐 *Время:* ${timestamp}
 
 ---
-Сайт: konsaltingcentr-yurline.kz`;
+Сайт: konsalting-ts.web.app`;
 
   try {
     // Use node-fetch for HTTP requests
