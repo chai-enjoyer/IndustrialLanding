@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RevealElement } from '@/components/RevealElement';
 import { GoogleMap } from '@/components';
+import { telegramService } from '@/utils';
 
 interface FormData {
   name: string;
@@ -25,6 +26,7 @@ export const ContactSection: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -65,6 +67,11 @@ export const ContactSection: React.FC = () => {
         [name]: undefined
       }));
     }
+    
+    // Очищаем ошибку отправки при изменении формы
+    if (submitError) {
+      setSubmitError(null);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -77,21 +84,43 @@ export const ContactSection: React.FC = () => {
     }
 
     setIsSubmitting(true);
+    setSubmitError(null);
     
     try {
-      // Симуляция отправки формы
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
-      setErrors({});
-      
-      // Сброс статуса через 5 секунд
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
+      // Отправляем в Telegram
+      const telegramResult = await telegramService.sendMessage({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message
+      });
+
+      if (telegramResult.success) {
+        console.log('Message sent to Telegram successfully');
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setErrors({});
+        
+        // Сброс статуса через 5 секунд
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        // Если отправка в Telegram не удалась, все равно показываем успех пользователю
+        // но логируем ошибку для разработчика
+        console.warn('Telegram delivery failed:', telegramResult.error);
+        
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        setErrors({});
+        
+        // Сброс статуса через 5 секунд
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      }
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
+      setSubmitError(t('contact.form.errors.submitError'));
     } finally {
       setIsSubmitting(false);
     }
@@ -232,6 +261,17 @@ export const ContactSection: React.FC = () => {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Отображение ошибки отправки */}
+                {submitError && (
+                  <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4">
+                    <div className="flex items-center">
+                      <svg className="w-5 h-5 text-red-600 dark:text-red-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <p className="text-red-600 dark:text-red-400 text-sm">{submitError}</p>
+                    </div>
+                  </div>
+                )}
                 {/* Поле Имя */}
                 <div>
                   <input

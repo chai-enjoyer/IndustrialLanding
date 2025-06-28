@@ -1,5 +1,5 @@
 import { ThemeProvider } from '@/context';
-import { Layout } from '@/components';
+import { Layout, TelegramBotDebug } from '@/components';
 import { HomePage } from '@/pages';
 import './tailwind.css';
 
@@ -8,6 +8,7 @@ function App() {
     <ThemeProvider>
       <Layout>
         <HomePage />
+        <TelegramBotDebug />
       </Layout>
     </ThemeProvider>
   );

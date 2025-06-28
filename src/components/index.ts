@@ -13,3 +13,4 @@ export * from './AnimatedElement';
 export * from './PageTransition';
 export * from './ParallaxBackground';
 export * from './GoogleMap';
+export * from './TelegramBotDebug';
