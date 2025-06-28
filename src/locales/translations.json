@@ -1,0 +1,26 @@
+{
+  "en": {
+    "welcome": "Welcome",
+    "hello": "Hello World",
+    "home": "Home",
+    "services": "Services",
+    "about": "About Us",
+    "contacts": "Contacts"
+  },
+  "ru": {
+    "welcome": "Добро пожаловать",
+    "hello": "Привет мир",
+    "home": "Главная",
+    "services": "Услуги",
+    "about": "О нас",
+    "contacts": "Контакты"
+  },
+  "kz": {
+    "welcome": "Қош келдіңіз",
+    "hello": "Сәлем Әлем",
+    "home": "Басты бет",
+    "services": "Қызметтер",
+    "about": "Біз туралы",
+    "contacts": "Байланыс"
+  }
+}
