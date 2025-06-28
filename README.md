@@ -147,3 +147,14 @@ npm run dev
 Настройки видимости сохраняются в localStorage и запоминаются между сессиями.
 
 Подробнее см. [TELEGRAM_DEBUG_WIDGET.md](./TELEGRAM_DEBUG_WIDGET.md)
+
+## 🌐 Live Deployment
+
+**🚀 Production Website**: https://konsalting-ts.web.app  
+**📂 GitHub Repository**: https://github.com/chai-enjoyer/IndustrialLanding  
+**🔧 Firebase Console**: https://console.firebase.google.com/project/konsalting-ts
+
+### 🔐 Security Features
+- ✅ **Secure Telegram Integration**: Bot credentials stored server-side via Firebase Cloud Functions
+- ✅ **No Exposed Secrets**: All sensitive data hidden from browser
+- ✅ **Production Ready**: Industry-standard security practices implemented
