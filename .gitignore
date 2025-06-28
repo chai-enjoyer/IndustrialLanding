@@ -177,3 +177,16 @@ docs/build/
 *key*
 *token*
 config/secrets/
+
+# === FIREBASE ===
+# Firebase service account keys
+firebase-adminsdk-*.json
+service-account-*.json
+serviceAccountKey.json
+
+# Firebase debug logs
+firebase-debug.log
+firebase-debug.*.log
+
+# Firebase cache
+.firebase/

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { telegramBot } from '@/utils/telegramBot';
+import { secureTelegramService } from '@/utils/secureTelegramService';
 
 interface BotStatus {
   configured: boolean;
@@ -50,7 +50,7 @@ export const TelegramBotDebug: React.FC = () => {
   }, []);
 
   const checkBotStatus = async () => {
-    const isConfigured = telegramBot.isConfigured();
+    const isConfigured = secureTelegramService.isConfigured();
     
     if (!isConfigured) {
       setStatus({ configured: false, error: 'Bot token or chat ID not configured' });
@@ -59,8 +59,8 @@ export const TelegramBotDebug: React.FC = () => {
 
     try {
       const [botResult, chatResult] = await Promise.all([
-        telegramBot.getBotInfo(),
-        telegramBot.getChatInfo()
+        secureTelegramService.getBotInfo(),
+        secureTelegramService.getChatInfo()
       ]);
 
       setStatus({
@@ -82,7 +82,7 @@ export const TelegramBotDebug: React.FC = () => {
     setTestResult(null);
 
     try {
-      const result = await telegramBot.sendMessage({
+      const result = await secureTelegramService.sendMessage({
         name: 'Test User',
         email: 'test@example.com',
         message: '🧪 Тестовое сообщение с сайта ЮРЛАЙН. Если вы получили это сообщение, интеграция работает корректно!'

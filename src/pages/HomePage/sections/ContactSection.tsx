@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RevealElement } from '@/components/RevealElement';
 import { GoogleMap } from '@/components';
-import { telegramService } from '@/utils';
+import { secureTelegramService } from '@/utils/secureTelegramService';
 
 interface FormData {
   name: string;
@@ -87,8 +87,8 @@ export const ContactSection: React.FC = () => {
     setSubmitError(null);
     
     try {
-      // Отправляем в Telegram
-      const telegramResult = await telegramService.sendMessage({
+      // Отправляем в Telegram через безопасный Cloud Function
+      const telegramResult = await secureTelegramService.sendMessage({
         name: formData.name,
         email: formData.email,
         message: formData.message
