@@ -69,10 +69,11 @@ If the widget shows "Not configured":
 - **Error Handling**: Graceful error display and recovery
 
 ### Styling
-- **Position**: Fixed bottom-right corner
-- **Z-index**: 50 (above most content)
+- **Position**: Fixed bottom-right corner, positioned above scroll-to-top button
+- **Z-index**: 40 (below scroll-to-top button but above most content)
 - **Theme Support**: Automatic light/dark mode adaptation
 - **Responsive**: Adapts to mobile screens
+- **Spacing**: Vertically stacked with scroll-to-top button to prevent overlap
 
 ## Troubleshooting
 

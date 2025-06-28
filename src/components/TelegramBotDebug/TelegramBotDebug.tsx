@@ -110,7 +110,7 @@ export const TelegramBotDebug: React.FC = () => {
     return (
       <button
         onClick={handleShow}
-        className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg z-50 transition-all duration-200"
+        className="fixed bottom-20 right-4 bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg z-40 transition-all duration-200"
         title="Show Telegram Debug Panel (Ctrl+Shift+T)"
       >
         🤖
@@ -119,7 +119,7 @@ export const TelegramBotDebug: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-4 right-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 max-w-sm z-50">
+    <div className="fixed bottom-20 right-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 max-w-sm z-40">
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-gray-900 dark:text-white">
           🤖 Telegram Bot
